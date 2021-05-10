@@ -35,10 +35,12 @@ class Book():
     @classmethod
     def save_book(cls):
         # TODO 
-        # 持久化
+        # 持久化2
+        l1 = []
         for book in cls.books:
             # print(book)
-            to_mongo(book.get_data(book), cls.__name__)
+            l1.append(book.get_data())
+        to_mongo(l1, cls.__name__)
 
     def get_data(self):
         return {
