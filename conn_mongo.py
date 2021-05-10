@@ -23,9 +23,7 @@ class MyMongo1():
         # print(data[0])
         
         self.table_user.insert_many(data)
-        # self.table_user.update(data)
-
-    # print(table_user.count())
+        # print(table_user.count())
 
     def update(self, tiaojian, data):
         '''

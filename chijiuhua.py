@@ -4,6 +4,16 @@
 
 from conn_mongo import MyMongo1
 
+def drop_mongo(table=None, mongo1=None):
+    '''
+    要么是表名，要么是对象,至少放一个, mongo1优先度更高
+
+    table: 表名
+    mongo1: mongo数据库对象
+    '''
+    if not mongo1:  # 如果没有传mongo对象进来
+        mongo1 = MyMongo1(table)
+    mongo1.drop_datas()
 
 def to_mongo(data, table):
     '''
@@ -12,16 +22,13 @@ def to_mongo(data, table):
     '''
     mongo1 = MyMongo1(table)
 
+    # drop_mongo(table=table) # 使用表名
+    drop_mongo(mongo1=mongo1) # 使用mongo对象
+
     if isinstance(data, list):
         mongo1.save(data)
     else:
         mongo1.save([data])
-
-    import time
-    print('快删除了')
-    time.sleep(10)
-    mongo1.drop_datas()
-    print('删除成功了')
 
 print('')
 
@@ -35,4 +42,4 @@ def load_mongo(table, tj={}):
     mongo1.find(tj)
 
 if __name__ == '__main__':
-    to_mongo([{'_id': '1', 'name': 'pscly', 'price': 30}, {'_id': '2', 'name': 'lsy', 'price': 21.01}], 'test1')
+    to_mongo([{'_id': '1', 'name': 'pscly', 'price': 310}, {'_id': '2', 'name': 'lsy', 'price': 31.01}], 'test1')
