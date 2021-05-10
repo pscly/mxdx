@@ -22,6 +22,7 @@ def to_mongo(data, table):
     '''
     mongo1 = MyMongo1(table)
 
+    # 先删除一下原本的数据
     # drop_mongo(table=table) # 使用表名
     drop_mongo(mongo1=mongo1) # 使用mongo对象
 
