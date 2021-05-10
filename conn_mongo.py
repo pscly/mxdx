@@ -18,9 +18,19 @@ class MyMongo1():
         #     "name": data[1],
         # }
         # print(data[0])
-        self.table_user.insert(data)
+
+        self.table_user.insert_many(data)
+        # self.table_user.update(data)
 
     # print(table_user.count())
+
+    def update(self, tiaojian, data):
+        '''
+
+        tiaojian: 更新条件
+        data: 更新数据
+        '''
+        self.table_user.update(data)
 
     #6、查找
     def find(self):

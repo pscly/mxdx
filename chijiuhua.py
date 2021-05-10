@@ -6,10 +6,26 @@ from conn_mongo import MyMongo1
 
 def to_mongo(data, table):
     '''
-    data: data应该是[字典] 
+    data: data应该是 列表套字典, 如果不是列表，就会自动套上[]
     table: 是表名(例如book,)
     '''
     mongo1 = MyMongo1(table)
-    mongo1.save([data])
+
+    if isinstance(data, list):
+        mongo1.save(data)
+    else:
+        mongo1.save([data])
 
 print('')
+
+def load_mongo(table, tj={}):
+    '''
+    table: 表名
+    tj: 查询条件
+    return: [{},{}]
+    '''
+    mongo1 = MyMongo1(table)
+    mongo1.find(tj)
+
+if __name__ == '__main__':
+    to_mongo([{'_id': '1', 'name': 'pscly', 'price': 30}, {'_id': '2', 'name': 'lsy', 'price': 21.01}], 'test1')

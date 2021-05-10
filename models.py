@@ -2,12 +2,13 @@
 # 这里存放我的class
 
 from chijiuhua import to_mongo
+from chijiuhua import load_mongo
 
 class Book():
     books = []  # 书的对象s 
 
-    def __init__(self, id, name, price, shuliang):
-        self.id = id
+    def __init__(self, _id, name, price, shuliang):
+        self._id = _id
         self.name = name
         self.price = price
         self.shuliang = shuliang
@@ -24,16 +25,22 @@ class Book():
         # 创建书
         pass
 
-    @staticmethod
-    def load_book():
-        
-    # def load_book(self, id, name, price, shuliang):
+    @classmethod
+    def load_book(cls):
+        # def load_book(self, id, name, price, shuliang):
+        books = load_mongo(cls.__name__)
+        for book in books:
+            b1 = cls(book)
+        return 
         # TODO
         # 读取书
         pass
 
     @classmethod
     def save_book(cls):
+        '''
+        这玩意会把类里面的所有东西都会保存
+        '''
         # 持久化2
         l1 = []
         for book in cls.books:
