@@ -12,10 +12,7 @@ class Book():
         self.price = price
         self.shuliang = shuliang
         self.add_Book_books(self)
-        
-    def __init__(self):
-        self.add_Book_books(self)
-    
+
 
     @classmethod
     def add_Book_books(cls, self):
