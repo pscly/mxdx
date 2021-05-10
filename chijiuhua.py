@@ -39,7 +39,10 @@ def load_mongo(table, tj={}):
     return: [{},{}]
     '''
     mongo1 = MyMongo1(table)
-    mongo1.find(tj)
+
+    return mongo1.find(tj)
 
 if __name__ == '__main__':
-    to_mongo([{'_id': '1', 'name': 'pscly', 'price': 310}, {'_id': '2', 'name': 'lsy', 'price': 31.01}], 'test1')
+    # to_mongo([{'_id': '1', 'name': 'pscly', 'price': 310}, {'_id': '2', 'name': 'lsy', 'price': 31.01}], 'test1')
+    x1 = load_mongo('test1')
+    print(x1)
