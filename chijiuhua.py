@@ -4,6 +4,7 @@
 
 from conn_mongo import MyMongo1
 
+
 def to_mongo(data, table):
     '''
     data: data应该是 列表套字典, 如果不是列表，就会自动套上[]
@@ -15,6 +16,12 @@ def to_mongo(data, table):
         mongo1.save(data)
     else:
         mongo1.save([data])
+
+    import time
+    print('快删除了')
+    time.sleep(10)
+    mongo1.drop_datas()
+    print('删除成功了')
 
 print('')
 

@@ -9,6 +9,9 @@ class MyMongo1():
         self.db = self.client['mxdx1']
         self.table_user = self.db[table]
 
+    def drop_datas(self):
+        self.table_user.drop()
+
     def save(self, data):
         '''
         data: data应该是[字典] 
@@ -18,7 +21,7 @@ class MyMongo1():
         #     "name": data[1],
         # }
         # print(data[0])
-
+        
         self.table_user.insert_many(data)
         # self.table_user.update(data)
 
