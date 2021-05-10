@@ -24,14 +24,16 @@ class Book():
         # 创建书
         pass
 
-    def load_book(self, id, name, price, shuliang):
+    @staticmethod
+    def load_book():
+        
+    # def load_book(self, id, name, price, shuliang):
         # TODO
         # 读取书
         pass
 
     @classmethod
     def save_book(cls):
-        # TODO 
         # 持久化2
         l1 = []
         for book in cls.books:
