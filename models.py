@@ -142,6 +142,7 @@ if __name__ == '__main__':
     # Book.new_book()
     # Book.look_books(1)
     # Book.del_book()
+    # lfr
 
     
     # Book.save_book()
