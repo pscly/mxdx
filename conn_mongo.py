@@ -21,7 +21,7 @@ class MyMongo1():
         #     "name": data[1],
         # }
         # print(data[0])
-        
+        print(data)
         self.table_user.insert_many(data)
         # print(table_user.count())
 
