@@ -31,7 +31,6 @@ def to_mongo(data, table):
     else:
         mongo1.save([data])
 
-print('')
 
 def load_mongo(table, tj={}):
     '''
