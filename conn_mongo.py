@@ -1,7 +1,6 @@
 from pymongo import MongoClient
 
 
-
 class MyMongo1():
 
     def __init__(self, table):
@@ -16,26 +15,22 @@ class MyMongo1():
         '''
         data: data应该是[字典] 
         '''
-        # user0 = {
-        #     "xh": data[0],
-        #     "name": data[1],
-        # }
-        # print(data[0])
-        print(data)
         self.table_user.insert_many(data)
         # print(table_user.count())
 
     def update(self, tiaojian, data):
         '''
-
+        更新数据
         tiaojian: 更新条件
-        data: 更新数据
+        data: 更新数据的数据
         '''
         self.table_user.update(data)
 
-    #6、查找
+    
     def find(self, tj):
         '''
+        查找书籍
+        tj: 查找书籍的条件
         return 返回的东西需要for循环才能查询
         '''
 
@@ -45,5 +40,3 @@ class MyMongo1():
         for i in x:
             l1.append(i)
         return l1
-    
-
