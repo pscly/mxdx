@@ -50,7 +50,7 @@ def to_json(data, table):
     table: 文件名(数据的类名), 应该是字符串
     '''
     with open(f'./data/{table}.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f)
+        json.dump(data, f, ensure_ascii=False)
 
 def load_json(table, tj={}):
     '''

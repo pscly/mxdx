@@ -137,7 +137,7 @@ class Book():
         '''
         查看当前所有书籍，并且打印出来
         '''
-        print('-'*72)
+        print('-'*90)
         print('书籍id\t书籍名称\t书籍单价\t书籍数量\t'.expandtabs(21))
         for book in Book.books:
             if is_del == book.is_del:
@@ -156,10 +156,11 @@ class Dingdan():
     dingdans = []  # 书的对象s
     dingdans_id = []
 
-    def __init__(self, book_name, book_shuliang) -> None:
+    def __init__(self, book_name, book_shuliang, zongjia, **kwargs) -> None:
         self._id = len(Dingdan.dingdans) + 1
         self.book_name = book_name
         self.book_shuliang = book_shuliang
+        self.zongjia = zongjia
         self.add_s(self)
 
     @classmethod
@@ -202,18 +203,55 @@ class Dingdan():
                     break
                 print('我这边没有那么多书啊……')
             print('没有那么多书')
-        return cls(book.name, count)
+        
+        jiaqian = book.price * count
+        print(f'总价是{jiaqian}')
+        return cls(book.name, count, jiaqian)
+
+    
+    @classmethod
+    def load(cls):
+        '''
+        从数据库读取订单，这个东西应该是程序运行开始的时候运行
+        '''
+        dingdans = load_json(cls.__name__)
+
+        for dingdan in dingdans:
+            # if book.get('is_del'):
+            #     continue
+            b1 = cls(**dingdan)
+        return 
+
+    
+    @classmethod
+    def looks(cls):
+        '''
+        查看当前所有订单，并且打印出来
+        '''
+        print('-'*90)
+        print('订单号\t书籍名称\t书籍数量\t总价\t'.expandtabs(21))
+        for dingdan in Dingdan.dingdans:
+            print(f'{dingdan._id}\t{dingdan.book_name}\t{dingdan.book_shuliang}\t{dingdan.zongjia}\t'.expandtabs(24))
+
 
     def get_data(self):
         return {
             '_id': self._id,
             'book_name': self.book_name,
             'book_shuliang': self.book_shuliang,
+            'zongjia': self.zongjia,
         }
 
     @classmethod
     def save(cls):
-        pass
+        '''保存订单'''
+        l1 = []
+        for dingdan in cls.dingdans:
+            l1.append(dingdan.get_data())
+        
+        # to_mongo(l1, cls.__name__)
+        to_json(l1, cls.__name__)
+        
 
 def select_func():
     l1 = []
@@ -227,24 +265,35 @@ def save_all(*args):
     for cls in args:
         cls.save()
 
-    
+def load_all(*args):
+    '''
+    *args: 这个东西是吧指定的类传入，然后读取类下的所有东西
+    '''
+    for cls in args:
+        cls.load()
+
 
 if __name__ == '__main__':
-    Book.load()
+    # Book.load()
+    # load_all(Book)
+    load_all(Book, Dingdan)
     # x = Book.find_book([1,2121])
     # if not x: print('空')
     # print(x)
     # a1 = Book('python入门', 10.99, 300)
     # a2 = Book('python高级', 20.00, 30)
     # a3 = Book('java入门', 30.00, 90)
-    # Book.look_books()
+    # # Book.look_books()
     # Book.new_book()
     # Book.look_books(1)
     # Book.del_book()
     # lfr
-    Dingdan.new1()
+    # Dingdan.new1()
     # Dingdan.
-
+    Book.looks()
+    Dingdan.looks()
+    # Dingdan.new1()
+    # Dingdan.looks()
     # print()
     # test_gitee
     # Book.save()
