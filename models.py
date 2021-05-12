@@ -204,14 +204,16 @@ class Dingdan():
             print('没有那么多书')
         return cls(book.name, count)
 
-
     def get_data(self):
         return {
             '_id': self._id,
             'book_name': self.book_name,
             'book_shuliang': self.book_shuliang,
         }
-        
+
+    @classmethod
+    def save(cls):
+        pass
 
 def select_func():
     l1 = []
