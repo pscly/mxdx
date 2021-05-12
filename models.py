@@ -15,10 +15,10 @@ class Book():
         self.price = price
         self.shuliang = shuliang
         self.is_del = is_del    # 书籍是否是删除
-        self.add_Book_books(self)
+        self.add_s(self)
 
     @classmethod
-    def add_Book_books(cls, self):
+    def add_s(cls, self):
         '''
         
         cls: 是类(这玩意会自动传进来)
@@ -35,7 +35,7 @@ class Book():
         # cls.save_book()
         
     @classmethod
-    def new_book(cls):
+    def new1(cls):
         '''创建书'''
         print('书籍的id，将会自动生成')
         name = input('请输入书籍的名字:')
@@ -44,10 +44,10 @@ class Book():
         return cls(name, price, shuliang)
 
     @classmethod
-    def del_book(cls):
+    def del1(cls):
         '''删除书的方法'''
         while 1:
-            cls.look_books()
+            cls.looks()
 
             in_book = input('请输入你要删除的书籍的id(输入q退出):').strip()
 
@@ -63,12 +63,12 @@ class Book():
                 if in_book == i._id:
                     i.is_del = 1
                     print('删除成功')
-                    cls.def_now_book(in_book)
+                    cls.del_s(in_book)
                     return
             print('没有找到这个书籍')
 
     @classmethod
-    def find_book(cls, _id):
+    def find(cls, _id):
         '''
         查看指定书籍是否存在
         _id: 指定书籍的id(编号)，可以是列表
@@ -89,7 +89,7 @@ class Book():
                 return book
 
     @classmethod
-    def def_now_book(cls, _id):
+    def del_s(cls, _id):
         '''
         去删除当前的书籍列表
         _id: 要删除的那个书籍的id
@@ -98,7 +98,7 @@ class Book():
         cls.books_id.pop(_id-1)
 
     @classmethod
-    def load_book(cls):
+    def load(cls):
         '''
         从数据库读取书籍，这个东西应该是程序运行开始的时候运行
         '''
@@ -112,7 +112,7 @@ class Book():
         return 
 
     @classmethod
-    def save_book(cls):
+    def save(cls):
         '''
         这玩意会把类里面的所有书籍保存到数据库
         '''
@@ -133,7 +133,7 @@ class Book():
         }
 
     @classmethod
-    def look_books(cls, is_del=0):
+    def looks(cls, is_del=0):
         '''
         查看当前所有书籍，并且打印出来
         '''
@@ -146,9 +146,9 @@ class Book():
 
     # Book的方法
     book_funcs = [
-        [look_books, ['查看当前所有书籍']],
-        [new_book, ['新建书籍']],
-        [del_book, ['删除书籍']],
+        [looks, ['查看当前所有书籍']],
+        [new1, ['新建书籍']],
+        [del1, ['删除书籍']],
         # save_book, ['把当前数据保存到数据库'],   
     ]
 
@@ -160,19 +160,19 @@ class Dingdan():
         self._id = len(Dingdan.dingdans) + 1
         self.book_name = book_name
         self.book_shuliang = book_shuliang
-        self.add_Dingdan_dingdans(self)
+        self.add_s(self)
 
     @classmethod
-    def add_Dingdan_dingdans(cls, self):
+    def add_s(cls, self):
         '''将订单放到列表中'''
         cls.dingdans.append(self)
         cls.dingdans_id.append(self._id)
         
     @classmethod
-    def new_dingdan(cls):
+    def new1(cls):
         '''创建订单'''
         print('订单的id，将会自动生成')
-        Book.look_books()
+        Book.looks()
         while 1:
             # 此循环是为了找到书
             while 1:
@@ -184,7 +184,7 @@ class Dingdan():
                     book_id = int(book_id)
                     break
                 print('输入有误')
-            book = Book.find_book(book_id)
+            book = Book.find(book_id)
             if not book:
                 print('书籍不存在')
                 continue
@@ -224,11 +224,13 @@ def save_all(*args):
     '''
     *args: 这个东西是吧指定的类传入，然后保存类下的所有东西
     '''
+    for cls in args:
+        cls.save()
 
     
 
 if __name__ == '__main__':
-    Book.load_book()
+    Book.load()
     # x = Book.find_book([1,2121])
     # if not x: print('空')
     # print(x)
@@ -240,12 +242,13 @@ if __name__ == '__main__':
     # Book.look_books(1)
     # Book.del_book()
     # lfr
-    Dingdan.new_dingdan()
+    Dingdan.new1()
     # Dingdan.
 
     # print()
     # test_gitee
-    # Book.save_book()
+    # Book.save()
+    save_all(Book, Dingdan)
     # Book.look_books()
     # Book.del_books()
 
