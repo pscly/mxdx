@@ -1,7 +1,7 @@
 # coding: utf-8
 # 这里存放我的class
 
-from chijiuhua import to_mongo, load_mongo
+from chijiuhua import load_json, to_json, to_mongo, load_mongo
 
 class Book():
     books = []  # 书的对象s
@@ -80,7 +80,8 @@ class Book():
         '''
         从数据库读取书籍，这个东西应该是程序运行开始的时候运行
         '''
-        books = load_mongo(cls.__name__)
+        # books = load_mongo(cls.__name__)
+        books = load_json(cls.__name__)
 
         for book in books:
             # if book.get('is_del'):
@@ -97,7 +98,8 @@ class Book():
         for book in cls.books:
             # print(book)
             l1.append(book.get_data())
-        to_mongo(l1, cls.__name__)
+        # to_mongo(l1, cls.__name__)
+        to_json(l1, cls.__name__)
 
     def get_data(self):
         return {
