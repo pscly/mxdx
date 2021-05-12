@@ -45,6 +45,8 @@ class Book():
 
     @classmethod
     def del_book(cls):
+        '''删除书 的方法'''
+        #TODO 可以修改(def find_book)
         while 1:
             cls.look_books()
 
@@ -65,6 +67,27 @@ class Book():
                     cls.def_now_book(in_book)
                     return
             print('没有找到这个书籍')
+
+    @classmethod
+    def find_book(cls, _id):
+        '''
+        查看指定书籍是否存在
+        _id: 指定书籍的id(编号)，可以是列表
+        return: 如果书存在就返回那本书的对象，不存在就会返回None或者空列表
+        '''
+        if isinstance(_id, list):
+            book_l1 = []
+            for book_id in _id:
+                for book in cls.books:
+                    if book._id == book_id:
+                        book_l1.append(book)
+                        break
+            return book_l1
+        
+
+        for book in cls.books:
+            if book._id == _id:
+                return book
 
     @classmethod
     def def_now_book(cls, _id):
@@ -130,6 +153,40 @@ class Book():
         # save_book, ['把当前数据保存到数据库'],   
     ]
 
+class Dingdan():
+    dingdans = []  # 书的对象s
+    dingdans_id = []
+
+    def __init__(self, book_name, book_shuliang) -> None:
+        self._id = len(Dingdan.dingdans) + 1
+        self.book_name = book_name
+        self.book_shuliang = book_shuliang
+        self.add_Dingdan_dingdans(self)
+
+    @classmethod
+    def add_Dingdan_dingdans(cls, self):
+        '''将订单放到列表中'''
+        cls.dingdans.append(self)
+        cls.dingdans_id.append(self._id)
+        
+    @classmethod
+    def new_dingdan(cls):
+        '''创建订单'''
+        print('订单的id，将会自动生成')
+        book_name = input('请输入书籍的编号:')
+        count = input('请输入书籍的数量:')
+        # TODO 查找书籍
+        return cls(book_name, count)
+
+
+    def get_data(self):
+        return {
+            '_id': self._id,
+            'book_name': self.book_name,
+            'book_shuliang': self.book_shuliang,
+        }
+        
+
 def select_func():
     l1 = []
     for count,func in Book.book_funcs:
@@ -137,6 +194,9 @@ def select_func():
 
 if __name__ == '__main__':
     Book.load_book()
+    x = Book.find_book([1,2121])
+    if not x: print('空')
+    print(x)
     # a1 = Book('python入门', 10.99, 300)
     # a2 = Book('python高级', 20.00, 30)
     # a3 = Book('java入门', 30.00, 90)
