@@ -128,3 +128,4 @@ dmypy.json
 .idea/
 my_data.json
 ._*
+data/
