@@ -45,8 +45,7 @@ class Book():
 
     @classmethod
     def del_book(cls):
-        '''删除书 的方法'''
-        #TODO 可以修改(def find_book)
+        '''删除书的方法'''
         while 1:
             cls.look_books()
 
@@ -173,10 +172,37 @@ class Dingdan():
     def new_dingdan(cls):
         '''创建订单'''
         print('订单的id，将会自动生成')
-        book_name = input('请输入书籍的编号:')
-        count = input('请输入书籍的数量:')
+        Book.look_books()
+        while 1:
+            # 此循环是为了找到书
+            while 1:
+                # 此循环是为了正确的输入
+                book_id = input('请输入书籍的编号(输入q退出):')
+                if book_id.lower() == 'q': 
+                    return
+                if book_id.isdigit():
+                    book_id = int(book_id)
+                    break
+                print('输入有误')
+            book = Book.find_book(book_id)
+            if not book:
+                print('书籍不存在')
+                continue
+            print(f'书籍: {book.name}')
+            break
+
         # TODO 查找书籍
-        return cls(book_name, count)
+        while 1:
+            # 为了正确的输入
+            count = input(f'请输入书籍的数量(当前数量({book.shuliang})):')
+            if count.isdigit():
+                count = int(count)
+                if count <= book.shuliang:
+                    book.shuliang -= count
+                    break
+                print('我这边没有那么多书啊……')
+            print('没有那么多书')
+        return cls(book.name, count)
 
 
     def get_data(self):
@@ -192,11 +218,18 @@ def select_func():
     for count,func in Book.book_funcs:
         l1.append([str(count), func])
 
+def save_all(*args):
+    '''
+    *args: 这个东西是吧指定的类传入，然后保存类下的所有东西
+    '''
+
+    
+
 if __name__ == '__main__':
     Book.load_book()
-    x = Book.find_book([1,2121])
-    if not x: print('空')
-    print(x)
+    # x = Book.find_book([1,2121])
+    # if not x: print('空')
+    # print(x)
     # a1 = Book('python入门', 10.99, 300)
     # a2 = Book('python高级', 20.00, 30)
     # a3 = Book('java入门', 30.00, 90)
@@ -205,6 +238,8 @@ if __name__ == '__main__':
     # Book.look_books(1)
     # Book.del_book()
     # lfr
+    Dingdan.new_dingdan()
+    # Dingdan.
 
     # print()
     # test_gitee
