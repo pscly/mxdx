@@ -1,9 +1,10 @@
-from pymongo import MongoClient
+
 
 
 class MyMongo1():
 
     def __init__(self, table):
+        from pymongo import MongoClient
         self.client = MongoClient('localhost', 27017)
         self.db = self.client['mxdx1']
         self.table_user = self.db[table]
