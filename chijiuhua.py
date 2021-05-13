@@ -59,8 +59,15 @@ def load_json(table, tj={}):
     tj: 读取的条件
     '''
     if not os.path.isfile(f'./data/{table}.json'):
-        print('建议先存入一些数据')
-        raise Exception(f'{table}数据不存在')
+        print('数据文件不存在')
+        
+        if not os.path.isdir('./data'):
+            os.makedirs('data')
+
+        with open(f'./data/{table}.json', 'w', encoding='utf-8') as f:
+            json.dump('', f)
+        print('已经为你初始化了数据文件')
+        raise Exception('\n'+'*'*60+'\n'+table+'数据不存在, 已经自动创建，但是需要手动重启程序')
 
     with open(f'./data/{table}.json', 'r', encoding='utf-8') as f:
         return json.load(f)
