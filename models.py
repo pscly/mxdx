@@ -145,11 +145,10 @@ class Book():
 
 
     # Book的方法
-    book_funcs = [
+    funcs = [
         [looks, ['查看当前所有书籍']],
         [new1, ['新建书籍']],
         [del1, ['删除书籍']],
-        # save_book, ['把当前数据保存到数据库'],   
     ]
 
 class Dingdan():
@@ -253,11 +252,19 @@ class Dingdan():
         to_json(l1, cls.__name__)
         
 
+funcs = [
+    [Book.looks, ['查看所有书籍']],
+    [Book.new1, ['新建书籍']],
+    [Book.del1, ['删除书籍']],
+    [Dingdan.looks, ['查看所有的订单']],
+    [Dingdan.new1, ['新建订单(买书)']],
+]
+
 def select_func():
     l1 = []
     for count,func in Book.book_funcs:
         l1.append([str(count), func])
-
+    
 def save_all(*args):
     '''
     *args: 这个东西是吧指定的类传入，然后保存类下的所有东西
