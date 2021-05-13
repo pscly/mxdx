@@ -1,0 +1,100 @@
+<mxfile>
+    <diagram id="1ipwH0Lgedo0WlFuup6q" name="第 1 页">
+        <mxGraphModel dx="-1590" dy="-2495" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="134" value="Book类" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="2760" y="3560" width="270" height="345" as="geometry"/>
+                </mxCell>
+                <mxCell id="135" value="_id&amp;nbsp; 书籍id" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="30" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="136" value="name 书籍名字" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="50" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="137" value="&lt;font color=&quot;#000000&quot;&gt;price&amp;nbsp; &amp;nbsp;书籍的价格&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#808080;" parent="134" vertex="1">
+                    <mxGeometry y="70" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="138" value="shuliang 书籍的数量" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="90" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="142" value="is_del&amp;nbsp; 书籍是否是下架的(删除)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="110" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="139" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="130" width="270" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="146" value="__init__()&amp;nbsp; 书籍的构造函数" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="165" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="155" value="add_s()&amp;nbsp; 将类创建好的对象放到类的列表中" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="185" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="145" value="new1()&amp;nbsp; 新建一个书籍" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="205" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="147" value="del1() 删除书籍" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="225" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="148" value="find()&amp;nbsp; 查找书籍" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="245" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="151" value="dels()&amp;nbsp; 将类的参数中的书进行删除" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="265" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="153" value="load()&amp;nbsp; &amp;nbsp;将数据库中的书拿出来" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="285" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="152" value="save()&amp;nbsp; 将当前的书籍保存到数据库中" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="305" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="150" value="get_data()&amp;nbsp; 将书籍对象转化为json数据格式" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="134" vertex="1">
+                    <mxGeometry y="325" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="156" value="Dingdan类" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="3130" y="3560" width="270" height="285" as="geometry"/>
+                </mxCell>
+                <mxCell id="157" value="_id&amp;nbsp; 订单编号" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="30" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="158" value="book_name 订单的书籍名字" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="50" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="159" value="&lt;font color=&quot;#000000&quot;&gt;book_shuliang&amp;nbsp; 订单的书籍数量&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#808080;" parent="156" vertex="1">
+                    <mxGeometry y="70" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="160" value="zongjia&amp;nbsp; &amp;nbsp;订单的书籍总价" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="90" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="162" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="110" width="270" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="163" value="__init__()&amp;nbsp; 订单的构造函数" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="145" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="164" value="add_s()&amp;nbsp; 将类创建好的对象放到类的列表中" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="165" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="165" value="new1()&amp;nbsp; 新建一个订单" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="185" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="167" value="find()&amp;nbsp; 查找书籍" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="205" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="169" value="load()&amp;nbsp; &amp;nbsp;将数据库中的订单数据拿出来" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="225" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="170" value="save()&amp;nbsp; 将当前的订单数据保存到数据库中" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="245" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="171" value="get_data()&amp;nbsp; 将订单对象转化为json数据格式" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="156" vertex="1">
+                    <mxGeometry y="265" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="172" value="开始" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="2920" y="4010" width="100" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
