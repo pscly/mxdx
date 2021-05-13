@@ -12,13 +12,18 @@ def look_funcs(funcs):
     return d1
 
 def choose_func(funcs):
+    '''
+    传入方法，然后自动生成字典和序号，让你选择功能
+    '''
     while 1:
         d1 = look_funcs(funcs)
-        in1 = input('请输入你要选择的功能(q退出):').strip()
+        in1 = input('请输入你要选择的功能(q保存退出):').strip()
         if in1.lower() == 'q':
             exit('退出')
         if in1 in d1:
             d1[in1][0]()
 
-if __name__ == '__main__':  
+if __name__ == '__main__':
+    load_all()  # 从数据库读取数据
     choose_func(funcs)
+    # save_all(Book, Dingdan)

@@ -122,6 +122,7 @@ class Book():
             l1.append(book.get_data())
         # to_mongo(l1, cls.__name__)
         to_json(l1, cls.__name__)
+        print(cls.__name__, '保存成功')
 
     def get_data(self):
         return {
@@ -244,15 +245,9 @@ class Dingdan():
         
         # to_mongo(l1, cls.__name__)
         to_json(l1, cls.__name__)
+        print(cls.__name__, '保存成功')
         
 
-funcs = [
-    [Book.looks, ['查看所有书籍']],
-    [Book.new1, ['新建书籍']],
-    [Book.del1, ['删除书籍']],
-    [Dingdan.looks, ['查看所有的订单']],
-    [Dingdan.new1, ['新建订单(买书)']],
-]
 
 def select_func():
     l1 = []
@@ -263,6 +258,8 @@ def save_all(*args):
     '''
     *args: 这个东西是吧指定的类传入，然后保存类下的所有东西
     '''
+    if not args:
+        args = [Book, Dingdan]
     for cls in args:
         cls.save()
 
@@ -270,9 +267,20 @@ def load_all(*args):
     '''
     *args: 这个东西是吧指定的类传入，然后读取类下的所有东西
     '''
+    if not args:
+        args = [Book, Dingdan]
     for cls in args:
         cls.load()
 
+
+funcs = [
+    [Book.looks, ['查看所有书籍']],
+    [Book.new1, ['新建书籍']],
+    [Book.del1, ['删除书籍']],
+    [Dingdan.looks, ['查看所有的订单']],
+    [Dingdan.new1, ['新建订单(买书)']],
+    [save_all, ['保存']],
+]
 
 if __name__ == '__main__':
     # Book.load()
