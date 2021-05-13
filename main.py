@@ -20,7 +20,5 @@ def choose_func(funcs):
         if in1 in d1:
             d1[in1][0]()
 
-# look_funcs(funcs)
-# x1 = look_funcs(funcs)
-# print(x1)
-choose_func(funcs)
+if __name__ == '__main__':  
+    choose_func(funcs)
