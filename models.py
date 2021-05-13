@@ -42,15 +42,20 @@ class Book():
         
         price = input('请输入书籍的价格:').strip()
         if not price.isdigit():
+            # TODO有问题
             print('价格输入有误')
+            return
         if int(price) < 0:
             print('价格不能低于0')
+            return
             
         shuliang = input('请输入书籍的数量:').strip()
         if not shuliang.isdecimal():
             print('数量输入有误')
+            return
         if int(shuliang) < 0:
             price('数量不能低于0')
+            return
 
         return cls(name, int(price), int(shuliang))
 
@@ -203,13 +208,14 @@ class Dingdan():
         while 1:
             # 为了正确的输入
             count = input(f'请输入书籍的数量(当前数量({book.shuliang})):')
-            if count.isdigit():
+            if count.isdecimal():   # 如果count是数字，而且不是小数
                 count = int(count)
                 if count <= book.shuliang:
                     book.shuliang -= count
                     break
                 print('我这边没有那么多书啊……')
-            print('没有那么多书')
+            else :
+                print('输入有误')
         
         jiaqian = book.price * count
         print(f'总价是{jiaqian}')

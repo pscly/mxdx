@@ -6,6 +6,8 @@ def look_funcs(funcs):
     return: {编号, [函数地址, 函数注释]}
     '''
     d1 = {}
+    print()
+    print('^^^'*12)
     for i, func in enumerate(funcs, 1):
         print(i, func[1][0])
         d1[str(i)] = [func[0], func[1]]
