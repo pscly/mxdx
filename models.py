@@ -38,10 +38,21 @@ class Book():
     def new1(cls):
         '''创建书'''
         print('书籍的id，将会自动生成')
-        name = input('请输入书籍的名字:')
-        price = input('请输入书籍的价格:')
-        shuliang = input('请输入书籍的数量:')
-        return cls(name, price, shuliang)
+        name = input('请输入书籍的名字:').strip()
+        
+        price = input('请输入书籍的价格:').strip()
+        if not price.isdigit():
+            print('价格输入有误')
+        if int(price) < 0:
+            print('价格不能低于0')
+            
+        shuliang = input('请输入书籍的数量:').strip()
+        if not shuliang.isdecimal():
+            print('数量输入有误')
+        if int(shuliang) < 0:
+            price('数量不能低于0')
+
+        return cls(name, int(price), int(shuliang))
 
     @classmethod
     def del1(cls):
@@ -174,8 +185,11 @@ class Dingdan():
                 book_id = input('请输入书籍的编号(输入q退出):')
                 if book_id.lower() == 'q': 
                     return
-                if book_id.isdigit():
+                if book_id.isdecimal():
                     book_id = int(book_id)
+                    if book_id < 0:
+                        print('数量不能小于0')
+                        continue
                     break
                 print('输入有误')
             book = Book.find(book_id)
