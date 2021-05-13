@@ -142,14 +142,7 @@ class Book():
         for book in Book.books:
             if is_del == book.is_del:
                 print(f'{book._id}\t{book.name}\t{book.price}\t{book.shuliang}\t'.expandtabs(24))
-
-
-    # Book的方法
-    funcs = [
-        [looks, ['查看当前所有书籍']],
-        [new1, ['新建书籍']],
-        [del1, ['删除书籍']],
-    ]
+        print('-'*90)
 
 class Dingdan():
     dingdans = []  # 书的对象s
@@ -231,7 +224,8 @@ class Dingdan():
         print('订单号\t书籍名称\t书籍数量\t总价\t'.expandtabs(21))
         for dingdan in Dingdan.dingdans:
             print(f'{dingdan._id}\t{dingdan.book_name}\t{dingdan.book_shuliang}\t{dingdan.zongjia}\t'.expandtabs(24))
-
+        
+        print('-'*90)
 
     def get_data(self):
         return {
