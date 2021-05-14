@@ -125,6 +125,7 @@ dmypy.json
 
 *.pyc
 .history/
+.vscode/
 .idea/
 my_data.json
 ._*
